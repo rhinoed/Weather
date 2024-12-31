@@ -37,14 +37,6 @@ struct Weather: AsyncParsableCommand {
 		print("\(cityName) \(givenUnits) \(output)")
 			if #available(macOS 10.15, *) {
 				Task{
-					print("\(cityName) \(givenUnits) \(output)")
-					print(AsciiWeatherIcons.rain)
-					print(AsciiWeatherIcons.partlyCloudyRain)
-					print(AsciiWeatherIcons.clearSunny)
-					print(AsciiWeatherIcons.clearNight)
-					print(AsciiWeatherIcons.foggy)
-					print(AsciiWeatherIcons.snow)
-					print(AsciiWeatherIcons.palt)
 					do{
 						guard let data = try await WeatherSession.getCurrentWeatherFor(city: cityName, units: givenUnits) else{ fatalError("Could not get data")}
 						handleJSONData(data: data, celciusTrue: mTrue, outputRaw: output)
